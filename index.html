@@ -55,35 +55,33 @@
 
     document.querySelector('.btn').onclick = () => {
         boardArea.innerHTML = `
-            <div style="display:flex; justify-content:space-between; color:gold; padding:5px; font-weight:bold;">
+            <div style="display:flex; justify-content:space-between; color:gold; padding:5px; font-weight:bold; font-family:sans-serif;">
                 <span>💰 Wallet: <b id="bal">${balance}</b></span>
                 <span>Turn: <b id="tTxt" style="color:white; text-shadow:0 0 10px white;">WHITE</b></span>
             </div>
-            <div id="game-box" style="position:relative; width:260px; height:260px; margin:10px auto; background:#fdf5e6; border:6px solid #8b4513; border-radius:12px; box-shadow:0 0 20px white;">
-                <div style="position:absolute; width:220px; height:220px; border:2px solid #333; top:18px; left:18px;"></div>
-                <div style="position:absolute; width:140px; height:140px; border:2px solid #333; top:58px; left:58px;"></div>
-                <div style="position:absolute; width:60px; height:60px; border:2px solid #333; top:98px; left:98px;"></div>
+            <div id="game-box" style="position:relative; width:260px; height:260px; margin:10px auto; background:#fdf5e6; border:8px solid #8b4513; border-radius:12px; box-shadow:0 0 25px white;">
+                <div style="position:absolute; width:220px; height:220px; border:3px solid #333; top:17px; left:17px;"></div>
+                <div style="position:absolute; width:140px; height:140px; border:3px solid #333; top:57px; left:57px;"></div>
+                <div style="position:absolute; width:60px; height:60px; border:3px solid #333; top:97px; left:97px;"></div>
                 
-                <div onclick="play(0, this)" style="position:absolute; top:8px; left:8px; width:22px; height:22px; background:rgba(0,0,0,0.1); border-radius:50%; z-index:10; cursor:pointer;"></div>
-                <div onclick="play(1, this)" style="position:absolute; top:8px; left:118px; width:22px; height:22px; background:rgba(0,0,0,0.1); border-radius:50%; z-index:10; cursor:pointer;"></div>
-                <div onclick="play(2, this)" style="position:absolute; top:8px; right:8px; width:22px; height:22px; background:rgba(0,0,0,0.1); border-radius:50%; z-index:10; cursor:pointer;"></div>
+                <div onclick="play(0, this)" style="position:absolute; top:7px; left:7px; width:22px; height:22px; background:rgba(0,0,0,0.1); border-radius:50%; z-index:10; cursor:pointer; border:1px dashed #888;"></div>
+                <div onclick="play(1, this)" style="position:absolute; top:7px; left:117px; width:22px; height:22px; background:rgba(0,0,0,0.1); border-radius:50%; z-index:10; cursor:pointer; border:1px dashed #888;"></div>
+                <div onclick="play(2, this)" style="position:absolute; top:7px; right:7px; width:22px; height:22px; background:rgba(0,0,0,0.1); border-radius:50%; z-index:10; cursor:pointer; border:1px dashed #888;"></div>
             </div>
-            <p style="text-align:center; color:gold; font-size:12px;">✨ Touch dots to place Shining Pieces! ✨</p>`;
-        alert("Board Ready!");
+            <p style="text-align:center; color:gold; font-size:13px; font-weight:bold;">✨ Touch dots to place Shining Pieces! ✨</p>`;
+        alert("Game Board Fixed! Start placing pieces.");
     };
 
     function play(id, el) {
         if(!boardState[id]) {
             boardState[id] = turn;
-            el.style.background = (turn === 'white') ? 'radial-gradient(circle, #fff, #ccc)' : 'radial-gradient(circle, #444, #000)';
-            el.style.boxShadow = "0 0 10px gold"; el.style.border = "1px solid gold";
+            el.style.background = (turn === 'white') ? 'radial-gradient(circle, #fff 30%, #bbb 100%)' : 'radial-gradient(circle, #555 30%, #000 100%)';
+            el.style.boxShadow = "0 0 15px gold"; el.style.border = "2px solid gold";
             turn = (turn === 'white') ? 'black' : 'white';
             document.getElementById('tTxt').innerText = turn.toUpperCase();
+            document.getElementById('tTxt').style.color = (turn === 'white') ? 'white' : '#aaa';
         }
     }
-    document.querySelector('.btn-deposit').onclick = () => alert('💰 Deposit Active');
-    document.querySelector('.btn-withdraw').onclick = () => alert('🚀 Withdraw Sent');
 </script>
 </body>
 </html>
-
