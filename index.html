@@ -50,140 +50,32 @@
 </div>
 
 <script>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Beautiful Nine Men's Morris Game</title>
-    <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            background-color: #f4f4f4;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-        }
+    const boardArea = document.querySelector('.game-board-area');
+    
+    document.querySelector('.btn').onclick = () => {
+        boardArea.innerHTML = `
+            <div style="position: relative; width: 250px; height: 250px; margin: 20px auto; background: #fdf5e6; border: 6px solid #8b4513; border-radius: 10px; box-shadow: 0 0 20px rgba(255,255,255,0.8); display: flex; align-items: center; justify-content: center;">
+                <div style="position: absolute; width: 210px; height: 210px; border: 2px solid #333;"></div>
+                <div style="position: absolute; width: 140px; height: 140px; border: 2px solid #333;"></div>
+                <div style="position: absolute; width: 70px; height: 70px; border: 2px solid #333;"></div>
+                
+                <div style="position: absolute; width: 2px; height: 70px; background: #333; top: 0;"></div>
+                <div style="position: absolute; width: 2px; height: 70px; background: #333; bottom: 0;"></div>
+                <div style="position: absolute; width: 70px; height: 2px; background: #333; left: 0;"></div>
+                <div style="position: absolute; width: 70px; height: 2px; background: #333; right: 0;"></div>
+                
+                <p style="position: absolute; bottom: -45px; color: gold; font-weight: bold; text-shadow: 1px 1px 2px black; width: 100%; text-align: center;">✨ NINE MORRIS PRO ✨</p>
+            </div>
+        `;
+        alert('VIP Board Fixed!');
+    };
 
-        .game-container {
-            text-align: center;
-        }
-
-        .game-board-area {
-            width: 300px;
-            height: 300px;
-            margin: 20px auto;
-            background-color: #fef6e4;
-            border: 6px solid #8b4513;
-            border-radius: 20px;
-            position: relative;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
-            transition: all 0.3s ease;
-        }
-
-        .game-board-area .outer-ring,
-        .game-board-area .middle-ring,
-        .game-board-area .inner-ring {
-            position: absolute;
-            border: 3px solid #333;
-            border-radius: 50%;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-        }
-
-        .game-board-area .outer-ring {
-            width: 260px;
-            height: 260px;
-            top: 20px;
-            left: 20px;
-        }
-
-        .game-board-area .middle-ring {
-            width: 180px;
-            height: 180px;
-            top: 60px;
-            left: 60px;
-        }
-
-        .game-board-area .inner-ring {
-            width: 100px;
-            height: 100px;
-            top: 110px;
-            left: 110px;
-        }
-
-        .game-board-area .cross-line {
-            position: absolute;
-            background-color: #333;
-        }
-
-        .game-board-area .vertical-line {
-            width: 2px;
-            height: 100%;
-            top: 0;
-            left: 50%;
-        }
-
-        .game-board-area .horizontal-line {
-            width: 100%;
-            height: 2px;
-            top: 50%;
-            left: 0;
-        }
-
-        button {
-            margin: 10px;
-            padding: 12px 24px;
-            background-color: #8b4513;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 16px;
-            transition: background-color 0.3s ease;
-        }
-
-        button:hover {
-            background-color: #6f3b1e;
-        }
-
-        button:active {
-            transform: scale(0.95);
-        }
-    </style>
-</head>
-<body>
-    <div class="game-container">
-        <div class="game-board-area"></div>
-        <button class="btn">Create Beautiful Game Board</button>
-        <button class="btn-deposit">Deposit</button>
-        <button class="btn-withdraw">Withdraw</button>
-    </div>
-
-    <script>
-        const boardArea = document.querySelector('.game-board-area');
-
-        document.querySelector('.btn').onclick = () => {
-            boardArea.innerHTML = `
-                <div class="outer-ring"></div>
-                <div class="middle-ring"></div>
-                <div class="inner-ring"></div>
-
-                <div class="vertical-line"></div>
-                <div class="horizontal-line"></div>
-
-                <p style="position: absolute; bottom: -45px; color: gold; font-weight: bold; text-shadow: 1px 1px 2px black; width: 100%; text-align: center;">✨ Nine Men's Morris ✨</p>
-            `;
-            alert('Beautiful VIP Game Board Created!');
-        };
-
-        document.querySelector('.btn-deposit').onclick = () => alert('💰 Payment Gateway Active');
-
-        document.querySelector('.btn-withdraw').onclick = () => {
-            let amt = prompt('How much to withdraw?');
-            if (amt) alert('🚀 ' + amt + ' PKR Sent!');
-        };
+    document.querySelector('.btn-deposit').onclick = () => alert('💰 Gateway Active');
+    document.querySelector('.btn-withdraw').onclick = () => {
+        let amt = prompt('Kitna withdraw?');
+        if(amt) alert('🚀 ' + amt + ' PKR Sent!');
+    };
+    
     </script>
 </body>
 </html>
