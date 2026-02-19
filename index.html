@@ -50,38 +50,40 @@
 </div>
 
 <script>
+    let balance = 1000, turn = 'white', boardState = Array(24).fill(null);
     const boardArea = document.querySelector('.game-board-area');
-    
+
     document.querySelector('.btn').onclick = () => {
         boardArea.innerHTML = `
-            <div style="position: relative; width: 250px; height: 250px; margin: 20px auto; background: #fdf5e6; border: 6px solid #8b4513; border-radius: 10px; box-shadow: 0 0 20px rgba(255,255,255,0.8); display: flex; align-items: center; justify-content: center;">
-                <div style="position: absolute; width: 210px; height: 210px; border: 2px solid #333;"></div>
-                <div style="position: absolute; width: 140px; height: 140px; border: 2px solid #333;"></div>
-                <div style="position: absolute; width: 70px; height: 70px; border: 2px solid #333;"></div>
-                
-                <div style="position: absolute; width: 2px; height: 70px; background: #333; top: 0;"></div>
-                <div style="position: absolute; width: 2px; height: 70px; background: #333; bottom: 0;"></div>
-                <div style="position: absolute; width: 70px; height: 2px; background: #333; left: 0;"></div>
-                <div style="position: absolute; width: 70px; height: 2px; background: #333; right: 0;"></div>
-                
-                <p style="position: absolute; bottom: -45px; color: gold; font-weight: bold; text-shadow: 1px 1px 2px black; width: 100%; text-align: center;">✨ NINE MORRIS PRO ✨</p>
+            <div style="display:flex; justify-content:space-between; color:gold; padding:5px; font-weight:bold;">
+                <span>💰 Wallet: <b id="bal">${balance}</b></span>
+                <span>Turn: <b id="tTxt" style="color:white; text-shadow:0 0 10px white;">WHITE</b></span>
             </div>
-        `;
-        alert('VIP Board Fixed!');
+            <div id="game-box" style="position:relative; width:260px; height:260px; margin:10px auto; background:#fdf5e6; border:6px solid #8b4513; border-radius:12px; box-shadow:0 0 20px white;">
+                <div style="position:absolute; width:220px; height:220px; border:2px solid #333; top:18px; left:18px;"></div>
+                <div style="position:absolute; width:140px; height:140px; border:2px solid #333; top:58px; left:58px;"></div>
+                <div style="position:absolute; width:60px; height:60px; border:2px solid #333; top:98px; left:98px;"></div>
+                
+                <div onclick="play(0, this)" style="position:absolute; top:8px; left:8px; width:22px; height:22px; background:rgba(0,0,0,0.1); border-radius:50%; z-index:10; cursor:pointer;"></div>
+                <div onclick="play(1, this)" style="position:absolute; top:8px; left:118px; width:22px; height:22px; background:rgba(0,0,0,0.1); border-radius:50%; z-index:10; cursor:pointer;"></div>
+                <div onclick="play(2, this)" style="position:absolute; top:8px; right:8px; width:22px; height:22px; background:rgba(0,0,0,0.1); border-radius:50%; z-index:10; cursor:pointer;"></div>
+            </div>
+            <p style="text-align:center; color:gold; font-size:12px;">✨ Touch dots to place Shining Pieces! ✨</p>`;
+        alert("Board Ready!");
     };
 
-    document.querySelector('.btn-deposit').onclick = () => alert('💰 Gateway Active');
-    document.querySelector('.btn-withdraw').onclick = () => {
-        let amt = prompt('Kitna withdraw?');
-        if(amt) alert('🚀 ' + amt + ' PKR Sent!');
-    };
-    
-    </script>
-</body>
-</html>
-    
-    
+    function play(id, el) {
+        if(!boardState[id]) {
+            boardState[id] = turn;
+            el.style.background = (turn === 'white') ? 'radial-gradient(circle, #fff, #ccc)' : 'radial-gradient(circle, #444, #000)';
+            el.style.boxShadow = "0 0 10px gold"; el.style.border = "1px solid gold";
+            turn = (turn === 'white') ? 'black' : 'white';
+            document.getElementById('tTxt').innerText = turn.toUpperCase();
+        }
+    }
+    document.querySelector('.btn-deposit').onclick = () => alert('💰 Deposit Active');
+    document.querySelector('.btn-withdraw').onclick = () => alert('🚀 Withdraw Sent');
 </script>
-
 </body>
 </html>
+
