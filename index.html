@@ -51,7 +51,13 @@
 
 <script>
     console.log("Beautiful System Initialized");
-    // Future: Add Firebase real-time betting here
+    document.querySelector('.btn-deposit').onclick = () => alert('Opening JazzCash Gateway...');
+document.querySelector('.btn-withdraw').onclick = () => {
+    let amount = prompt('Kitna withdraw karna hai?');
+    if(amount) alert(amount + ' PKR withdrawal request sent!');
+};
+document.querySelector('.btn').onclick = () => alert('Game Loading...');
+    
 </script>
 
 </body>
