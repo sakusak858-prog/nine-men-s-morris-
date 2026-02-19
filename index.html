@@ -54,25 +54,27 @@
     
     document.querySelector('.btn').onclick = () => {
         boardArea.innerHTML = `
-            <div style="position: relative; width: 240px; height: 240px; margin: auto; background: rgba(0,0,0,0.3); border: 3px solid #d4af37; box-shadow: 0 0 20px rgba(212, 175, 55, 0.5); display: grid; place-items: center;">
-                <div style="position: absolute; width: 160px; height: 160px; border: 2px solid #d4af37;"></div>
-                <div style="position: absolute; width: 80px; height: 80px; border: 2px solid #d4af37;"></div>
+            <div style="position: relative; width: 260px; height: 260px; margin: auto; background: #fdf5e6; border: 8px solid #8b4513; border-radius: 15px; box-shadow: 0 0 30px rgba(255, 255, 255, 0.9), inset 0 0 20px rgba(0,0,0,0.1); display: flex; align-items: center; justify-content: center;">
+                <div style="position: absolute; width: 220px; height: 220px; border: 3px solid #444; box-shadow: 0 0 5px white;"></div>
+                <div style="position: absolute; width: 140px; height: 140px; border: 3px solid #444; box-shadow: 0 0 5px white;"></div>
+                <div style="position: absolute; width: 60px; height: 60px; border: 3px solid #444; box-shadow: 0 0 5px white;"></div>
                 
-                <div style="position: absolute; width: 2px; height: 80px; background: #d4af37; top: 0;"></div>
-                <div style="position: absolute; width: 2px; height: 80px; background: #d4af37; bottom: 0;"></div>
-                <div style="position: absolute; width: 80px; height: 2px; background: #d4af37; left: 0;"></div>
-                <div style="position: absolute; width: 80px; height: 2px; background: #d4af37; right: 0;"></div>
-                
-                <p style="color: #d4af37; margin-top: 280px; font-weight: bold; text-shadow: 0 0 5px gold;">✨ GOLDEN BOARD ACTIVE ✨</p>
-            </div>`;
-        alert('Welcome to Pro Edition!');
+                <div style="position: absolute; width: 3px; height: 80px; background: #444; top: 0;"></div>
+                <div style="position: absolute; width: 3px; height: 80px; background: #444; bottom: 0;"></div>
+                <div style="position: absolute; width: 80px; height: 3px; background: #444; left: 0;"></div>
+                <div style="position: absolute; width: 80px; height: 3px; background: #444; right: 0;"></div>
+            </div>
+            <p style="color: gold; margin-top: 15px; font-weight: bold; text-shadow: 0 0 10px white;">✨ PREMIUM SHINING BOARD ✨</p>
+        `;
+        alert('VIP White Board Loaded!');
     };
 
-    document.querySelector('.btn-deposit').onclick = () => alert('💰 Opening Secure Payment Gateway...');
+    document.querySelector('.btn-deposit').onclick = () => alert('💰 Gateway Active');
     document.querySelector('.btn-withdraw').onclick = () => {
-        let amt = prompt('Kitna withdraw karna hai?');
-        if(amt) alert('🚀 ' + amt + ' PKR Withdrawal Request Sent!');
+        let amt = prompt('Kitna withdraw?');
+        if(amt) alert('🚀 ' + amt + ' PKR Sent!');
     };
+    
     
 </script>
 
